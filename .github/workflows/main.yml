@@ -27,4 +27,4 @@ jobs:
        run: docker-compose up -d --build
      - name: Run test
        # test
-       run: docker-compose exec web python -m pytest -k "test_task_process_and_return_success"
+       run: docker-compose exec -T web python -m pytest -k "test_task_process_and_return_success"
