@@ -17,9 +17,9 @@ class PL_Trainer(pl.LightningModule):
 
     
     def forward(self, batch): 
-        ids = batch['input_ids'].to(dtype = torch.long)#.to(model.device)
-        mask = batch['attention_mask'].to(dtype = torch.long)#.to(model.device)
-        labels = batch['labels'].to(dtype = torch.long)#.to(model.device)
+        ids = batch['input_ids'].to(dtype = torch.long)
+        mask = batch['attention_mask'].to(dtype = torch.long)
+        labels = batch['labels'].to(dtype = torch.long)
         loss, tr_logits = self.model(input_ids=ids, attention_mask=mask, labels=labels,
                                return_dict=False)
         return loss, tr_logits        
