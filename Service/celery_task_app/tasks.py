@@ -37,8 +37,8 @@ def predict_text_analytics_single(self, inp_texts):
     if isinstance(inp_texts, str):
         inp_texts = [inp_texts]
     batch = self.tokenizer.prepare_seq2seq_batch(src_texts=inp_texts, max_length=1024, truncation=True, padding='longest', return_tensors='pt')
-    input_ids = batch['input_ids']#.to(device)
-    attention_mask = batch['attention_mask']#.to(device)
+    input_ids = batch['input_ids']
+    attention_mask = batch['attention_mask']
     generated_ids = self.model.generate(input_ids=input_ids, attention_mask=attention_mask, \
     use_cache=True, num_beams=64, top_p=0.8, top_k=50, num_return_sequences=10, temperature=1.5, no_repeat_ngram_size=2, \
     repetition_penalty=2.0, early_stopping=True)
